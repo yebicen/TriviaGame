@@ -34,7 +34,7 @@ console.log(questionarray);
 
 startpage();
 
-// start of startpage function
+// start of startage function
 function startpage(){
    var startbutton = $("<p>") 
    startbutton.html("Start")
@@ -77,6 +77,7 @@ console.log("start!" + currentQuestion);
       stoptimer();
       ShowTimeoutPage();
       notanswer++; 
+      currentQuestion++;
       //not answered question is increasing by one
       console.log("not answered: " + notanswer)
       }
@@ -146,12 +147,7 @@ else if(userchoice !== questionarray[currentQuestion].correctAnswer){
 //end of onclick event
 });
 
-// console.log("hh " + currentQuestion)
-// if(currentQuestion = questionarray.length){
-//     console.log("cQ " + currentQuestion)
-//     console.log("lll " + questionarray.length)
-//     gameoverpage();
-// }
+
 
 
 
@@ -244,12 +240,19 @@ function ShowTimeoutPage(){
 //this function allows pages to empty before display the next question
 function NextQuestion(){
    //find all div and make it empty
-   $("#content").empty();
-   number = 10;
-   runtimer()
-   displayQuestion();
+$("#content").empty();
+//if user finish answer all the question, display gameoverpage
+if(currentQuestion === questionarray.length){
+    gameoverpage();
 }
 
+else {
+    number = 10;
+    runtimer()
+    displayQuestion();
+}
+//end of Nextquestion function
+}
 
 
 //gameover function
@@ -274,9 +277,10 @@ function gameoverpage(){
    });      
 }
 
-//startover function
+//startover function to reset everything
 function startover(){
     $("#content").empty();  
+    $("#timer").empty(); 
     currentQuestion = 0;
     correct = 0;
     wrong = 0;

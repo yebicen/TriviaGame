@@ -1,0 +1,75 @@
+
+body{
+    text-align: center;
+    background-image: url("../images/candy.jpg");
+}
+
+.colorblock{
+    font-family: 'Audiowide', cursive;
+    color:blue;
+    font-size: 50px;
+    background-color: rgb(241, 241, 121);
+    width:60%;
+    height: 800px;
+    position: fixed;
+    left: 50%;
+    margin-top: -80px;
+    margin-left:-30%;
+    z-index: -1;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+#timer{
+    margin-top: 100px;
+margin-bottom: 0;
+}
+
+#content{
+    width:60%;
+    position: fixed;
+    left: 20%;
+    text-align: center;
+}
+
+.startbutton{
+    width:50%;
+    margin-left: 25%;
+    margin-top: 35%;
+    background-color: rgb(252, 199, 208);
+    border: 2px solid blue;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.startoverbutton{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    width:30%;
+    margin-left: 35%;
+}
+
+.questionarea{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.answerlist{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    width:50%;
+    margin-left: 25%;
+}
+
+h2.answerlist:hover{
+    background-color: rgb(252, 199, 208);
+    border: 2px solid blue;
+}
+
+p.startoverbutton:hover{
+    background-color: rgb(252, 199, 208);
+    border: 2px solid blue;  
+}
+

@@ -2,7 +2,9 @@ body{
     text-align: center;
     background-image: url("../images/candy.jpg");
 }
-
+img{
+    width:50%;
+}
 .colorblock{
     font-family: 'Audiowide', cursive;
     color:blue;

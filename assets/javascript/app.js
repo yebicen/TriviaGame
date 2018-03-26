@@ -235,6 +235,7 @@ else {
 //gameover function
 function gameoverpage(){
     $("#content").empty();
+     $("#timer").empty();
     var summary =
     "All done, here's how you did! " +
       "<p>Correct Answers: " + correct + "</p>" +

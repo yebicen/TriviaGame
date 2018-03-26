@@ -1,36 +1,33 @@
-
-   
-   $(document).ready(function() {
+$(document).ready(function() {
 
     var questionarray = [{
-        question: "What is the population of Brazil?",
-        choices: ["145 million", "199 million", "182 million", "205 million"],
+        question: "Which country wins most FIFA World Cup?",
+        choices: ["France", "Brazil", "England", "Agentina"],
         correctAnswer: 1,
         gif: "assets/images/question1.gif",
     }, {
-        question: "What is 27*14?",
-        choices: ["485", "634", "408", "528"],
+        question: "Which city is the capital of China?",
+        choices: ["Shanghai", "Guangzhou", "Beijing", "Hong Kong"],
         correctAnswer: 2,
-        gif: "assets/images/question2.gif",
+        gif: "assets/images/question2.jpg",
     }, {
-        question: "What is the busiest train station in the world?",
-        choices: ["Grand Central, NY", "Shibuya, Tokyo", "Beijing Central, Chine", "Gard du Nord, Paris"],
+        question: "Which city is the capital of Japan?",
+        choices: ["Kyoto", "Tokyo", "Osaka", "Shanghai"],
         correctAnswer: 1,
         gif: "assets/images/question3.gif",
     }, {
-        question: "What is the longest river?",
-        choices: ["Nile", "Amazon", "Mississippi", "Yangtze"],
+        question: "What is the result of 15*37",
+        choices: ["555", "465", "760", "475"],
         correctAnswer: 0,
         gif: "assets/images/question4.gif",
     }, {
-        question: "What is the busiest tube station in the London?",
-        choices: ["Waterloo", "Baker Street", "Kings Cross", "Victoria"],
+        question: "What city staged the 2012 Summer Olympic Games?",
+        choices: ["London, UK", "Beijing, China", "Los Angeles, USA", "Seoul, Korea"],
         correctAnswer: 0,
         gif: "assets/images/question5.gif",
     }];
 
 console.log(questionarray);
-
 
 startpage();
 
@@ -50,17 +47,13 @@ function startpage(){
 //end of startpage function
 }
 
-
-//global var
+//global var to keep the game moving forward
 var currentQuestion = 0;
 console.log("start!" + currentQuestion);
 
-
 // timer functions start
-    var number = 10;
+    var number = 10; //seconds
     var intervalId;
-
-
 
     function runtimer() {
       $("#timer").html("<p> Time Remaining:  10 seconds <p>");
@@ -68,8 +61,7 @@ console.log("start!" + currentQuestion);
       intervalId = setInterval(countdown, 1000);
     }
 
-    function countdown() {
-     
+    function countdown() {  
       number--;
       $("#timer").html("<p> Time Remaining:  " + number + " seconds <p>");
 
@@ -87,8 +79,6 @@ console.log("start!" + currentQuestion);
       clearInterval(intervalId);
     }
 //timer functions end
-
-
 
 //start of displayQuestion function
 function displayQuestion(){
@@ -122,7 +112,6 @@ stoptimer();
 var userchoice = questionarray[currentQuestion].choices.indexOf($(this).text());
 console.log("user choose: " + userchoice); //return a index of userchoice
 
-
 //start of compare
 if(userchoice == questionarray[currentQuestion].correctAnswer){
 //use user select index to compare with correct index
@@ -143,13 +132,8 @@ else if(userchoice !== questionarray[currentQuestion].correctAnswer){
     console.log("wrong count: " + wrong)
 }
 
-
 //end of onclick event
 });
-
-
-
-
 
 // start of ShowCorrectPage function
 function ShowCorrectPage(){
@@ -177,7 +161,6 @@ function ShowCorrectPage(){
     detail.text(questionarray[currentQuestion].choices[questionarray[currentQuestion].correctAnswer])
     //actually gives you choices[x], x is the in the correctAnswer as a object
     image.attr("src", questionarray[currentQuestion].gif)
-
 // end of ShowCorrectPage function
 }
 
@@ -204,7 +187,6 @@ function ShowWrongPage(){
     lossMessage.html("Nope!");
     detail.html("The Correct Answer was: " + (questionarray[currentQuestion].choices[questionarray[currentQuestion].correctAnswer]));
     image.attr("src", questionarray[currentQuestion].gif)
-
 // end of ShowWronngPage function
 }
 
@@ -224,7 +206,6 @@ function ShowTimeoutPage(){
     var image = $("<img>")
 
     // Append it all to the content container and add text and images
-   
     $(messageArea).append(TimeoutMessage);
     $(messageArea).append(detail);
     $(messageArea).append(image);
@@ -232,14 +213,11 @@ function ShowTimeoutPage(){
     TimeoutMessage.html("Out of Time!");
     detail.html("The Correct Answer was: " + (questionarray[currentQuestion].choices[questionarray[currentQuestion].correctAnswer]));
     image.attr("src", questionarray[currentQuestion].gif)
-
 // end of ShowTimeoutPage function
 }
 
-
 //this function allows pages to empty before display the next question
 function NextQuestion(){
-   //find all div and make it empty
 $("#content").empty();
 //if user finish answer all the question, display gameoverpage
 if(currentQuestion === questionarray.length){
@@ -253,7 +231,6 @@ else {
 }
 //end of Nextquestion function
 }
-
 
 //gameover function
 function gameoverpage(){
@@ -288,12 +265,6 @@ function startover(){
     number = 10;
     startpage();
 }
-
-
-
-
-
-
 
 //end of document ready
 })
